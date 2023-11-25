@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDEOGAMES</title>
+</head>
+<body>
+    
+    <input type="text" id="idVideogame">
+    <br><br>
+    <table border=4 width=50% style="background-color: darkseagreen;">
+        <tr><td style="text-align: center; font-weight: bold;">Videogame's name:</td><td id="getName"></td></tr>
+        <tr><td style="text-align: center; font-weight: bold;">Videogame's price:</td><td id="getPrice"></td></tr>
+        <tr><td style="text-align: center; font-weight: bold;">Videogame's stock:</td><td id="getStock"></td></tr>
+    </table>
+
+    <script>
+
+        const Request = new XMLHttpRequest();
+        const Route = "data.php";
+
+        document.getElementById("idVideogame").onchange = function(){
+            var newRoute = Route + "?videogame=" + document.getElementById("idVideogame").value
+            Request.open("GET", newRoute);
+            Request.send(); 
+        }
+
+        Request.onreadystatechange = function(e){
+            if(Request.readyState == 4){
+                if(Request.status == 200){
+                    var json = JSON.parse(Request.responseText);
+                    console.log(json);
+                    document.getElementById("getName").innerHTML = json.name
+                    document.getElementById("getPrice").innerHTML = json.price
+                    document.getElementById("getStock").innerHTML = json.stock
+                } else{
+                    console.error("Error: " + Request.status);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
