@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo AJAX - Fetch</title>
+    <script>
+        var datosJSON = []
+        window.onload = function(){ //Funcion para que me ejecute algo únicamente cuando se pida
+            fetch("usuarios.json") //Se indica el archivo que quiero cargar
+                . then(function(response){
+                    return response.json()
+                })
+                . then(function(datos){
+                    datosJSON = datos
+                    console.log(datos)
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+
+                document.getElementById("usuario").onkeyup = function(){
+                    let existe = false;
+                    console.log(this.value)
+                    for(let i=0; i<datosJSON.length; i++){
+                        console.log(datosJSON)
+                        if(datosJSON[i].usuario == this.value){
+                            existe = true;
+                        }
+
+                        if(existe == false){
+                            this.classList.remove("ko")
+                            this.classList.add("ok")
+                        } else {
+                            this.classList.remove("ok")
+                            this.classList.add("ko")
+                        }
+                    }
+                }
+        }
+    </script>
+    <style>
+        .ok{border:1px solid green; background: rgba(0, 255, 0, 0.2)}
+        .ko{border:1px solid red; background: rgba(255, 0, 0, 0.2);}
+    </style>
+</head>
+<body>
+    <h1>Escoge un usuario para tu aplicación</h1>
+    <input type="text" id="usuario">
+</body>
+</html>

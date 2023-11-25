@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo AJAX - Fetch</title>
+    <script>
+        window.onload = function(){ //Funcion para que me ejecute algo únicamente cuando se pida
+            fetch("usuarios.json") //Se indica el archivo que quiero cargar
+                . then(function(response){
+                    return response.json()
+                })
+                . then(function(datos){
+                    console.log(datos)
+                })
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
