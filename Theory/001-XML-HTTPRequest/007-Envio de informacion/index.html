@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo AJAX</title>
+</head>
+<body>
+  
+    <script>
+        const Peticion = new XMLHttpRequest(); //Es un objeto predeterminado dentro de JS
+        const ruta = "servidor.php";
+
+        var datos = 4;
+        var nuevaruta = ruta + "?numero = " + datos
+        Peticion.open("GET", ruta);
+        Peticion.send("data = " + datos);
+
+        Peticion.onreadystatechange = function(e){
+
+        //Captura de errores:
+        if(Peticion.status == 200){
+            console.log(Peticion.responseText);
+        } else{
+            console.error("Error: " + Peticion.status);
+        }
+        }
+    </script>
+    
+</body>
+</html>

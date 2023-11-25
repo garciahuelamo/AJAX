@@ -1,0 +1,9 @@
+AJAX = Asynchronous Javascript and XML
+
+Eso quiere decir que JS no se va a cargar de forma sincrónica (en el momento en que se carga la página), sino que
+se va a cargar de forma asincrónica, siempre que queramos, una vez que la página
+esté cargada.
+
+Se puede llevar a cabo:
+    - AJAX sin librerías, mediante JS puro
+    - AJAX con librearías, por ejemplo JQuery

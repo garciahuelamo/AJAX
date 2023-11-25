@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo AJAX</title>
+</head>
+<body>
+    
+    <input type="text" id=""campo>
+    <button>Calcula</button>
+    <script>
+        const Peticion = new XMLHttpRequest(); //Es un objeto predeterminado dentro de JS
+        const ruta = "datos.json";
+
+        Peticion.open("GET", ruta);
+        Peticion.send();    
+
+        Peticion.onreadystatechange = function(e){
+            if(Peticion.readyState == 4){
+                //Captura de errores:
+                if(Peticion.status == 200){
+                    var json = JSON.parse(Peticion.response);
+                    console.log(json); //Todo el JSON completo
+                    console.log(json.nombre); //Filtrar por el nombre
+                } else{
+                    console.error("Error: " + Peticion.status);
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

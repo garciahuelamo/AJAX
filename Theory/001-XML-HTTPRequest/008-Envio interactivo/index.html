@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo AJAX</title>
+</head>
+<body>
+    
+    <input type="text" id=""campo>
+    <button>Calcula</button>
+    <script>
+        const Peticion = new XMLHttpRequest(); //Es un objeto predeterminado dentro de JS
+        const ruta = "servidor.php";
+
+        document.querySelector("button").onclick = function(){
+            var datos = document.getElementById("campo").value;
+            var nuevaruta = ruta + "?numero = " + datos
+            Peticion.open("GET", ruta);
+            Peticion.send("data = " + datos);
+        }
+        
+
+        Peticion.onreadystatechange = function(e){
+            if(Peticion.readyState == 4){
+                //Captura de errores:
+                if(Peticion.status == 200){
+                    console.log(Peticion.responseText);
+                } else{
+                    console.error("Error: " + Peticion.status);
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

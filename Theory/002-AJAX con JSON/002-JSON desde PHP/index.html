@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo AJAX</title>
+</head>
+<body>
+    
+    <input type="text" id="idcliente">
+    <table border=1 width=50%>
+        <tr><td>ID de cliente:</td><td id="recibenombre"></td></tr>
+        <tr><td>E-Mail de cliente:</td><td id="recibeemail"></td></tr>
+        <tr><td>Telefono de cliente:</td><td id="recibetelefono"></td></tr>
+    </table>
+    <script>
+        const Peticion = new XMLHttpRequest(); //Es un objeto predeterminado dentro de JS
+        const ruta = "datos.php";
+        document.getElementById("idcliente").onchange = function(){
+            var nuevaruta = ruta + "?cliente=" + document.getElementById("idcliente").value
+            Peticion.open("GET", nuevaruta);
+            Peticion.send();   
+        }
+        
+        Peticion.onreadystatechange = function(e){
+            if(Peticion.readyState == 4){
+                //Captura de errores:
+                if(Peticion.status == 200){
+                    var json = JSON.parse(Peticion.response);
+                    console.log(json); //Todo el JSON completo
+                    document.getElementById("recibenombre").innerHTML = json.nombre
+                    document.getElementById("recibeemail").innerHTML = json.email
+                    document.getElementById("recibetelefono").innerHTML = json.telefono
+                } else{
+                    console.error("Error: " + Peticion.status);
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
