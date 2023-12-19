@@ -1,0 +1,15 @@
+He llevado a cabo un ejemplo de la primera lección de AJAX. Para ello, lo primero que he hecho ha sido solicitar llamada al objeto XHR, es decir con AJAX. También se ha creado una constante llamada ruta, para asginar la dirección del archivo .php para acceder a los datos de la base de datos.
+
+A continuación abriremos la solicitud de la llamada al objeto XHR con el método GET, que es para obtener los datos, y enviaremos la solucitud.
+
+Una vez obtenido los datos, el servidor web mandará de vuelta al cliente dichos datos mediante una respuesta HTTP - HTTP response.
+
+Para saber cómo va el estado de dicha solicitud:
+
+Si el readyState es = 4, significa que se ha recibido bien la solicitud. Pero:
+    - Si el estado de la solicitud enviada nos devuelven un 200 = OK
+    - Si el estado de la solicitud enviada nos devuelven un 404 = significa que ha habido algo tipo de ERROR
+
+Por último, hemos creado un archivo data.php donde encontramos una estructura tipo swicth donde se solicita la variable Videogame. En este archivo hemos utilizado PHP para acceder a los datos y JSON como objeto para crear objetos de base de datos dentro de la línea JS.
+
+Por tanto, volviendo a nuestro archivo index.html, ¿cómo podemos saber que estamos accediendo al archivo PHP donde se encuentran todos los datos? Pues directamente accedemos a ello mediante el modelo DOM y su método getElementById, es decir, método para obtener los objetos mediante ID.
