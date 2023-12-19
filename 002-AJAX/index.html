@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videogames Onlineshop</title>
+    <script>
+        var data = [];
+        window.onload = function(){ 
+            document.getElementById("videogame").onkeyup = function(){
+                var form = document.getElementById("videogameform");
+                var formData = new FormData(form);
+                fetch("check.php", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: formData
+                })
+                . then(function(data){
+                    console.log(data)
+                    if(data.status == 'ok'){
+                        document.getElementById("videogame").classList.remove("ko");
+                        document.getElementById("videogame").classList.add("ok");
+                    } else {
+                        document.getElementById("videogame").classList.remove("ok");
+                        document.getElementById("videogame").classList.add("ko");
+                    }
+                })
+            };      
+        }
+    </script>
+    <style>
+        .ok{border:1px solid green; background: rgba(0, 255, 0, 0.2)}
+        .ko{border:1px solid red; background: rgba(255, 0, 0, 0.2);}
+    </style>
+</head>
+<body>
+    <h1>Introduce the new videogame's name</h1>
+    <form id="videogameform">
+        <input type="text" id="videogame" name="videogame">
+    </form>
+</body>
+</html>
