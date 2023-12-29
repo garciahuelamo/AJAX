@@ -7,8 +7,8 @@
     <script>
         window.unload = function(){ //Funcion para que me ejecute algo únicamente cuando se pida
             fetch("usuario.json") //Se indica el archivo que quiero cargar
-                . then(function(response){
-                        return response.json()
+                .then(function(response){ //Coger los datos del archivo
+                        return response.json() 
                     })
         }
     </script>

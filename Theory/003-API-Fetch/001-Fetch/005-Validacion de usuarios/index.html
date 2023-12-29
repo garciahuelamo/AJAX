@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendiendo AJAX - Fetch</title>
     <script>
-        var datosJSON = []
+        var datosJSON = [] //Array para almacenar los datos
         window.onload = function(){ //Funcion para que me ejecute algo únicamente cuando se pida
             fetch("usuarios.json") //Se indica el archivo que quiero cargar
                 . then(function(response){
@@ -22,8 +22,7 @@
                 document.getElementById("usuario").onkeyup = function(){
                     let existe = false;
                     console.log(this.value)
-                    for(let i=0; i<datosJSON.length; i++){
-                        console.log(datosJSON)
+                    for(let i=0; i<datosJSON.length; i++){ //Pasamos la lista de usuarios para saber si el usuario existe o no
                         if(datosJSON[i].usuario == this.value){
                             existe = true;
                         }

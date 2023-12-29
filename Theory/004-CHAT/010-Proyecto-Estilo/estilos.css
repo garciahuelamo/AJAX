@@ -1,0 +1,51 @@
+body, html{
+    background: grey;
+    font-family: sans-serif;
+    height: 100%;
+    text-align: center;
+}
+
+header, main{
+    max-width: 400px;
+    background: white;
+    padding: 15px;
+    margin: auto;
+}
+
+main{
+    height: 70%;
+}
+
+
+#inicio input, #inicio button{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+#chat{
+    height: 100%;
+}
+
+#contienemensajes{
+    height: 80%;
+    border: 1px solid grey;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.mensaje{
+    width: 70%;
+    background: rgba(200, 255, 200);
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
+    font-size: 10px;
+    border-radius: 0px, 10px, 10px, 10px;
+}
+
+.texto{
+    padding: 10px;
+    font-size: 12px;
+}

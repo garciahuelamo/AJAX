@@ -22,6 +22,13 @@
                 })
                 . then(function(datos){
                     console.log(datos)
+                    if(datos.estado == 'ok'){
+                        document.getElementById("usuario").classList.remove("ko");
+                        document.getElementById("usuario").classList.add("ok");
+                    } else {
+                        document.getElementById("usuario").classList.remove("ok");
+                        document.getElementById("usuario").classList.add("ko");
+                    }
                 })
                 .catch(function(error){
                     console.log(error)

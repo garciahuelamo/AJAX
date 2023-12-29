@@ -5,27 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendiendo AJAX - Fetch</title>
     <script>
-        var datosJSON = []
         window.onload = function(){ //Funcion para que me ejecute algo únicamente cuando se pida
             document.getElementById("usuario").onkeyup = function(){
                 formulario = document.getElementById("formusuario");
                 datosformulario = new FormData(formulario);
-                fetch("comprueba.php", {
+                fetch("comprueba.php", { //Cada vez que el usuario pulse una tecla, se ejecuta con el archivo comprueba.php
                     method: 'POST',
                     headers: {
                         
                     },
                     body: datosformulario
                 })
-                . then(function(response){
-                    return response.json()
-                })
-                . then(function(datos){
-                    console.log(datos)
-                })
-                .catch(function(error){
-                    console.log(error)
-                })
+                    . then(function(response){
+                        return response.json()
+                    })
+                    . then(function(datos){
+                        console.log(datos)
+                    })
+                    . catch(function(error){
+                        console.log(error)
+                    })
             }       
         }
     </script>
