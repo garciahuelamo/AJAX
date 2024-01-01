@@ -1,0 +1,56 @@
+body, html{
+    background: burlywood;
+    font-family: sans-serif;
+    height: 100%;
+    text-align: center;
+}
+
+header, main{
+    max-width: 400px;
+    background: white;
+    padding: 15px;
+    margin: auto;
+}
+
+main{
+    height: 70%;
+}
+
+footer{
+    font-weight:lighter;
+    font-style: oblique;
+    font-size:x-small;
+}
+
+#start input, #start button{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+#chat{
+    height: 100%;
+}
+
+#containsmessages{
+    height: 80%;
+    border: 1px solid grey;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.message{
+    width: 70%;
+    background: rgb(239, 171, 187);
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
+    font-size: 10px;
+    border-radius: 0px, 10px, 10px, 10px;
+}
+
+.text{
+    padding: 10px;
+    font-size: 12px;
+}
